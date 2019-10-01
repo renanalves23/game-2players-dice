@@ -18,7 +18,54 @@
   var scores, roundScore, activePlayer, dice;
 
   scores = [0,0];
-  roundDcore = 0;
+  roundScore = 0;
   activePlayer = 0;
 
-  dice = 
+  //dice logic
+  dice = Math.floor(Math.random() * 6) + 1;
+  //console.log(dice);
+
+  //setter
+ document.querySelector('#current-' + activePlayer).textContent = dice;
+  //document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
+
+
+  //getter
+  var  x =  document.querySelector('#score-0').textContent;
+  console.log(x);
+
+  //hide dice
+  document.querySelector('.dice').style.display = 'none';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
