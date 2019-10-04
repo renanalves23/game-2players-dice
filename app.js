@@ -17,9 +17,8 @@
 
   var scores, roundScore, activePlayer;
 
-  scores = [0,0];
-  roundScore = 0;
-  activePlayer = 0;
+  init();
+
 
   //dice logic
   dice = Math.floor(Math.random() * 6) + 1;
@@ -34,16 +33,7 @@
     // var  x =  document.querySelector('#score-0').textContent;
     // console.log(x);
 
-  //hide dice
-  document.querySelector('.dice').style.display = 'none';
-
-    //modifying HTML numbers
-  document.getElementById('score-0').textContent = 0;
-  document.getElementById('score-1').textContent = 0;
-  document.getElementById('current-0').textContent = 0;
-  document.getElementById('current-1').textContent = 0;
-
-
+  
   document.querySelector('.btn-roll').addEventListener('click', function(){
     //1.random number
     var dice = Math.floor(Math.random() * 6) + 1;
@@ -73,6 +63,11 @@
     //verificar se o player ganhou o jogo
     if (scores[activePlayer] >= 100) {
       document.querySelector('#name-' + activePlayer).textContent = 'Winner!'
+      //tirar o display do dado
+      document.querySelector('.dice').style.display = 'none';
+      //class de personalização do 'winner e remover a bolinha do active player no rounds
+      document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+      document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
     }else {
     //next Player
     nextPlayer();
@@ -96,10 +91,26 @@ function nextPlayer() {
   document.querySelector('.dice').style.display = 'none';
 }
 
+document.querySelector('.btn-new').addEventListener('click', function() {
+ 
+
+})
 
 
+function init() {
+  scores = [0, 0];
+  activePlayer = 0;
+  roundScore = 0;
 
+  //hide dice
+  document.querySelector('.dice').style.display = 'none';
 
+    //modifying HTML numbers
+  document.getElementById('score-0').textContent = 0;
+  document.getElementById('score-1').textContent = 0;
+  document.getElementById('current-0').textContent = 0;
+  document.getElementById('current-1').textContent = 0;
+}
 
 
 
