@@ -15,17 +15,17 @@
 
 */
 
-  var scores, roundScore, activePlayer;
+  var scores, roundScore, activePlayer, gamePlaying;
 
   init();
 
 
   //dice logic
-  dice = Math.floor(Math.random() * 6) + 1;
+  //dice = Math.floor(Math.random() * 6) + 1;
   //console.log(dice);
 
   //setter
-//  document.querySelector('#current-' + activePlayer).textContent = dice;
+  //document.querySelector('#current-' + activePlayer).textContent = dice;
   //document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
 
 
@@ -34,9 +34,11 @@
     // console.log(x);
 
   
-  document.querySelector('.btn-roll').addEventListener('click', function(){
+  document.querySelector('.btn-roll').addEventListener('click', function() {
+    
     //1.random number
     var dice = Math.floor(Math.random() * 6) + 1;
+
     //2. display the result
     document.querySelector('.dice').style.display = 'block';
     document.querySelector('.dice').src = 'dice-' + dice + '.png';
@@ -49,13 +51,15 @@
     }else {
       //próximo jogador
       nextPlayer();
+      
     }
   });
   
   
 
   document.querySelector('.btn-hold').addEventListener('click', function() {
-    //adicionar current-score para global-score
+    
+      //adicionar current-score para global-score
     scores[activePlayer] += roundScore;
     //atualizar a UI
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
@@ -68,17 +72,20 @@
       //class de personalização do 'winner e remover a bolinha do active player no rounds
       document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
       document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+      gamePlaying = false;
     }else {
     //next Player
     nextPlayer();
+      
     }
-  });
+ });
 
 function nextPlayer() {
   //próximo jogador
   activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
   //rounscore volta a ser 0
   roundScore = 0;
+  
   document.getElementById('current-0').textContent  = '0';
   document.getElementById('current-1').textContent  = '0';
 
@@ -110,4 +117,10 @@ function init() {
 
 document.getElementById('name-0').textContent = 'Player 1';
 document.getElementById('name-1').textContent = 'Player 2';
-};
+
+document.querySelector('.player-0-panel').classList.remove('winner');
+document.querySelector('.player-1-panel').classList.remove('winner');
+document.querySelector('.player-0-panel').classList.remove('active');
+document.querySelector('.player-1-panel').classList.remove('active');
+document.querySelector('.player-0-panel').classList.add('active');
+}
