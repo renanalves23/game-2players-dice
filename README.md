@@ -1,5 +1,9 @@
 # game-2players-dice
 
+    
+![gamegithub dice](https://user-images.githubusercontent.com/53740747/66528393-13f16980-ead6-11e9-8ea7-9d9c937fb1c5.PNG)
+
+
   GAME RULES:
   - O jogo tem 2 jogadores, jogando em rounds
   - A cada rodada, um jogador joga o dado quantas vezes quiser. Cada resultado é adicionado ao seu ROUND SCORE
